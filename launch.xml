@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key>
+		<string>com.rhettnina.startup</string>
+
+		<!-- <key>OnDemand</key>
+		<false />
+
+		<key>LaunchOnlyOnce</key>
+		<true /> -->
+		<key>RunAtLoad</key>
+		<true />
+		<key>StartInterval</key>
+		<integer>3623</integer>
+
+		<key>UserName</key>
+		<string>rhettnina</string>
+
+		<!-- <key>WorkingDirectory</key>
+		<string>/Users/rhettnina/mylocalfile/update_with_remote/code/my/a-dog-a-day</string> -->
+
+		<!-- <key>ProgramArguments</key>
+		<array>
+			<string>./a-dog-a-day</string>
+		</array> -->
+		<key>Program</key>
+		<string>/Users/rhettnina/mylocalfile/update_with_remote/code/my/a-dog-a-day/script.sh</string>
+
+		<key>StandardErrorPath</key>
+		<string>/Users/rhettnina/mylocalfile/update_with_remote/code/my/a-dog-a-day/out.txt</string>
+		<key>StandardOutPath</key>
+		<string>/Users/rhettnina/mylocalfile/update_with_remote/code/my/a-dog-a-day/out.txt</string>
+	</dict>
+</plist>

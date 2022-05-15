@@ -1,0 +1,12 @@
+picture:
+  keyword: 可爱狗狗
+  notify_begin_day: 2022-04-24
+  picture_file: picture.txt
+runner:
+  notify_time: 03:33PM
+  notify_interval: 24h
+push:
+  server_key: xxx
+title:
+  rand: true
+  title_file: title.txt
