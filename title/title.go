@@ -35,9 +35,11 @@ func RandTitle() (string, error) {
 	allLines := make([]string, 0)
 	count := 0
 	for {
-		count++
 		l, _, err := r.ReadLine()
-		allLines = append(allLines, string(l))
+		if len(l) != 0 {
+			count++
+			allLines = append(allLines, string(l))
+		}
 		if err != nil {
 			if err == io.EOF {
 				break
@@ -45,6 +47,7 @@ func RandTitle() (string, error) {
 			return "", err
 		}
 	}
+	rand.Seed(time.Now().UnixNano())
 	order := rand.Intn(count)
 	return allLines[order], nil
 }

@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/nrbackback/a-dog-a-day/picture"
-	"github.com/nrbackback/a-dog-a-day/push"
 	"github.com/nrbackback/a-dog-a-day/runner"
 	"github.com/nrbackback/a-dog-a-day/title"
 	"github.com/stretchr/testify/assert"
@@ -30,9 +29,6 @@ func TestLoad(t *testing.T) {
 		Title: title.Config{
 			Rand:      true,
 			TitleFile: "title.txt",
-		},
-		Push: push.PushConfig{
-			ServerKey: "xxx",
 		},
 	}
 	assert.Equal(exceptConfig, Config)

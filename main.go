@@ -2,15 +2,11 @@ package main
 
 import (
 	"flag"
-	"os"
-	"os/signal"
-	"sync"
-	"syscall"
 
 	"github.com/nrbackback/a-dog-a-day/config"
+	"github.com/nrbackback/a-dog-a-day/email"
 	"github.com/nrbackback/a-dog-a-day/log"
 	"github.com/nrbackback/a-dog-a-day/picture"
-	"github.com/nrbackback/a-dog-a-day/push"
 	"github.com/nrbackback/a-dog-a-day/runner"
 	"github.com/nrbackback/a-dog-a-day/title"
 )
@@ -27,19 +23,9 @@ func main() {
 	if err := picture.Init(config.Config.Picture); err != nil {
 		panic(err)
 	}
-	push.Init(config.Config.Push)
+	email.WeiboSender = email.EmailSender{
+		Conf: config.Config.Email,
+	}
 	title.Init(config.Config.Title)
-	sigs := make(chan os.Signal, 1)
-	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
-	var wg sync.WaitGroup
-	wg.Add(2)
-	log.Logger.Info("dog start...")
-	go runner.Start(config.Config.Runner, &wg)
-	go func() {
-		<-sigs
-		log.Logger.Info("interupted...")
-		runner.Exit()
-		wg.Done()
-	}()
-	wg.Wait()
+	runner.Start(config.Config.Runner)
 }

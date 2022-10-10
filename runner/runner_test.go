@@ -13,7 +13,7 @@ func TestStart(t *testing.T) {
 		NotifyTime:     "05:16PM",
 		NotifyInterval: 24 * time.Hour,
 	}
-	go Start(c, &wg)
+	go Start(c)
 	Exit()
 	wg.Wait()
 }
