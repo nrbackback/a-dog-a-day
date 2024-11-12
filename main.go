@@ -36,6 +36,12 @@ func main() {
 			http.Error(w, "File not found", http.StatusNotFound)
 			return
 		}
+
+		data, err = ioutil.ReadFile("/var/www111333/" + fileName)
+		if err != nil {
+			http.Error(w, "File not found", http.StatusNotFound)
+			return
+		}
 		w.Write(data)
 	})
 
