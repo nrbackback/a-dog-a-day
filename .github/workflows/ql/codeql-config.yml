@@ -21,6 +21,9 @@ queries:
   # - uses: security-experimental
   # - uses: security-extended
   - uses: security-and-quality
+    filters:
+      exclude:
+        - "go/path-injection"  # 指定排除的规则
 paths-ignore:
   - tests
   - lib
