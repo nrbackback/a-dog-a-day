@@ -1,4 +1,3 @@
-# custom-queries.qls
-queries:
-  - uses: codeql/go-queries  # 加载所有 Go 语言规则
+name: "CodeQL config"
+queries: 
   - exclude: go/path-injection  # 排除路径注入规则

@@ -2,7 +2,8 @@
 name: "CodeQL Analysis"
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  push:
 
 jobs:
   codeql:
@@ -27,8 +28,8 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        queries: ./.github/workflows/ql/custom-queries.qls
-        # config-file: ./.github/workflows/ql/codeql-config.yml  # 指定配置文件
+        # queries: ./.github/workflows/ql/codeql-config.yml
+        config-file: ./.github/workflows/ql/codeql-config.yml  # 指定配置文件
         # 如果你有自定义的 CodeQL 数据库，可以设置 path 变量
         # database: "codeql-database"
 
