@@ -1,6 +1,6 @@
 name: "CodeQL config"
 queries: 
-  - uses: codeql/go-queries  # 加载所有 Go 语言的默认规则集
+  - uses: github/codeql-go/queries@main  # 加载所有 Go 语言的默认规则集
     filters:
       exclude:
         - "go/path-injection"  # 指定排除的规则
