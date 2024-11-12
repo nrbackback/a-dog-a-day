@@ -17,14 +17,20 @@ func main() {
 		}
 		w.Write(data)
 
-				// 漏洞：直接使用用户输入的文件路径，存在路径遍历风险
+		// 漏洞：直接使用用户输入的文件路径，存在路径遍历风险
 		data, err = ioutil.ReadFile("/var/www/" + fileName)
 		if err != nil {
 			http.Error(w, "File not found", http.StatusNotFound)
 			return
 		}
 		w.Write(data)
-		
+
+		data, err = ioutil.ReadFile("/var/www1111/" + fileName)
+		if err != nil {
+			http.Error(w, "File not found", http.StatusNotFound)
+			return
+		}
+		w.Write(data)
 	})
 
 	abs(2)
@@ -38,6 +44,7 @@ func abs(x int) int {
 		return x
 	}
 }
+
 // package main
 
 // import (
