@@ -1,3 +1,4 @@
 name: "CodeQL config"
 queries: 
-  - exclude: go/path-injection  # 排除路径注入规则
+  - uses: codeql/go-queries  # 这里的 "uses" 是必需的
+  - exclude: go/path-injection  # 这是可选的，可以排除指定的规则
